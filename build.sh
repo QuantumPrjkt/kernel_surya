@@ -30,7 +30,7 @@ echo  $P
 
 SECONDS=0 # builtin bash timer
 ZIPNAME="Quantum_[Reine]-kernel-surya-$(date '+%Y%m%d-%H%M').zip"
-TC_DIR="/workspace/yuki-clang"
+TC_DIR="/workspace/clang-r498229"
 AK3_DIR="$(pwd)/android/AnyKernel3"
 DEFCONFIG="surya_defconfig"
 
@@ -42,8 +42,8 @@ fi
 export PATH="$TC_DIR/bin:$PATH"
 
 if ! [ -d "$TC_DIR" ]; then
-   echo "Yuki Clang not found! Cloning to $TC_DIR..."
-   if ! git clone --depth=1 https://bitbucket.org/thexperienceproject/yuki-clang.git "$TC_DIR"; then
+   echo "Google AOSP Clang not found! Cloning to $TC_DIR..."
+   if ! git clone --depth=1 -b 17 https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone "$TC_DIR"; then
       echo "Cloning failed! Aborting..."
       exit 1
    fi
